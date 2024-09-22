@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import "./PlaceOrder.css"
+import { StoreContext } from "../../context/StoreContext";
 
 const PlaceOrder = () => {
+  const { getTotalCartAmount } = useContext(StoreContext);
+
   return (
     <form className="place-order">
       <div className="place-order-left">
@@ -40,8 +44,8 @@ const PlaceOrder = () => {
               <b>${getTotalCartAmount() + 2}</b>
             </div>
           </div>
-          <button onClick={() => navigate("/order")}>
-            PROCEED TO CHECKOUT
+          <button>
+            PROCEED TO PAYMENT
           </button>
         </div>
       </div>
