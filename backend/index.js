@@ -4,6 +4,7 @@ import cors from "cors"
 import express from "express";
 import evar from 'dotenv';
 import { connectDB } from "./config/db.js";
+import foodRouter from "./routes/foodRoute.js";
 
 // configure environment variables
 evar.config();
@@ -19,6 +20,9 @@ app.use(cors())
 
 // DB Connection
 connectDB();
+
+// api endpoints
+app.use("/api/food", foodRouter)
 
 app.get("/", (req, res) => {
     res.send("API Working")
