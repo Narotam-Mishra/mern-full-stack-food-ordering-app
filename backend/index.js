@@ -23,6 +23,7 @@ connectDB();
 
 // api endpoints
 app.use("/api/food", foodRouter)
+app.use("/images", expess.static('uploads'))
 
 app.get("/", (req, res) => {
     res.send("API Working")
