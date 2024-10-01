@@ -4,18 +4,23 @@ import { Route, Routes } from 'react-router-dom'
 import Add from "./pages/add/Add"
 import List from "./pages/list/List"
 import Orders from "./pages/orders/Orders"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
+  const apiUrl = 'http://localhost:8974';
+
   return (
     <div>
+      <ToastContainer />
       <Navbar />
       <hr />
       <div className="app-content">
         <Sidebar />
         <Routes>
-          <Route path="/add" element={<Add />} />
-          <Route path="/list" element={<List />} />
-          <Route path="/orders" element={<Orders />} />
+          <Route path="/add" element={<Add url={apiUrl} />} />
+          <Route path="/list" element={<List url={apiUrl} />} />
+          <Route path="/orders" element={<Orders url={apiUrl} />} />
         </Routes>
       </div>
     </div>
