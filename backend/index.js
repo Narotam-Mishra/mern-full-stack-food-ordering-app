@@ -5,6 +5,7 @@ import express from "express";
 import evar from 'dotenv';
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
+import userRouter from "./routes/userRoute.js";
 
 // configure environment variables
 evar.config();
@@ -24,6 +25,7 @@ connectDB();
 // api endpoints
 app.use("/api/food", foodRouter)
 app.use("/images", expess.static('uploads'))
+app.use("/api/user", userRouter)
 
 app.get("/", (req, res) => {
     res.send("API Working")
