@@ -37,6 +37,12 @@ const StoreContextProvider = (props) => {
         }
         return totalAmount;
     }
+
+    useEffect(() => {
+        if(localStorage.getItem("JWT_Token")){
+            setToken(localStorage.getItem("JWT_Token"));
+        }
+    }, [])
     
     const contextValue = {
       food_list,
