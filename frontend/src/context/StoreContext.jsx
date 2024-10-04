@@ -42,13 +42,18 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get()
+        const response = await axios.get(backendUrl+"/api/food/list");
+        setFoodList(response.data.data);
     }
 
     useEffect(() => {
-        if(localStorage.getItem("JWT_Token")){
-            setToken(localStorage.getItem("JWT_Token"));
+        async function loadData() {
+            await fetchFoodList();
+            if(localStorage.getItem("JWT_Token")){
+                setToken(localStorage.getItem("JWT_Token"));
+            }
         }
+        loadData();
     }, [])
     
     const contextValue = {
