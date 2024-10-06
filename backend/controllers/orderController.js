@@ -2,15 +2,19 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js"
 import Stripe from "stripe"
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 // stripe setup
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-
+// console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
 
 
 // placing user order from frontend
 const placeOrder = async (req, res) => {
-    const frontend_url = "http://localhost:5173";
+    const frontend_url = process.env.FRONTEND_URL;
 
     try {
         const newOrder = new orderModel({
@@ -50,7 +54,7 @@ const placeOrder = async (req, res) => {
             quantity: 1,
         })
 
-        // session creation
+        // create stripe checkout session
         const session = await stripe.checkout.sessions.create({
             line_items: line_items,
             mode: 'payment',
@@ -61,8 +65,8 @@ const placeOrder = async (req, res) => {
         res.json({ success: true, session_url: session.url })
 
     } catch (error) {
-        console.log("Error while making payment in stripe:",error);
-        res.json({ success: false, message: "Error while making payment" });
+        console.error("Stripe payment error:",error);
+        res.json({ success: false, message: "Stripe payment error" });
     }
 }
 

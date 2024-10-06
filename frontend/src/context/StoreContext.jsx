@@ -31,10 +31,6 @@ const StoreContextProvider = (props) => {
         }
     }
 
-    // useEffect(() => {
-    //     console.log(cartItems);
-    // }, [cartItems])
-
     // method to calculate total amount of cart items
     const getTotalCartAmount = () => {
         let totalAmount = 0;

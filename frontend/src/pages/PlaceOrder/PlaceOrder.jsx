@@ -36,12 +36,26 @@ const PlaceOrder = () => {
         orderItems.push(itemInfo);
       }
     })
-    // console.log("Ordered Items:",orderItems);
-  }
 
-  // useEffect(() => {
-  //   console.log("User's data:", data);
-  // }, [data])
+    // order data
+    let orderData = {
+      address: data,
+      items: orderItems,
+      amount: getTotalCartAmount()+2,
+    }
+
+    // call place order api with order data
+    let response = await axios.post(backendUrl+"/api/order/place", orderData, {headers: {token}});
+    console.log("Stripe Response:", response);
+    
+    if(response.data.success){
+      // redirect user to session URL
+      const { session_url } = response.data;
+      window.location.replace(session_url);
+    }else{
+      alert("Stripe payment error");
+    }
+  }
 
   return (
     <form onSubmit={placeOrder} className="place-order">
