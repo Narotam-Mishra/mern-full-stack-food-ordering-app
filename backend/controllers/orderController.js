@@ -8,9 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // stripe setup
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-// console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
-
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // placing user order from frontend
 const placeOrder = async (req, res) => {
@@ -70,4 +68,8 @@ const placeOrder = async (req, res) => {
     }
 }
 
-export { placeOrder };
+const verifyOrder = async () => {
+    
+}
+
+export { placeOrder, verifyOrder };
