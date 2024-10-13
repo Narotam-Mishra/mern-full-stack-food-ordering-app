@@ -107,4 +107,7 @@ const listOrders = async(req, res) => {
     }
 }
 
+// api for updating order status
+
+
 export { placeOrder, verifyOrder, userOrders, listOrders };

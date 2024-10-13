@@ -40,11 +40,19 @@ const Orders = ({ url }) => {
                 })}
               </p>
               <p className="order-item-name">{order.address.firstName+" "+order.address.lastName}</p>
-              <p className="order-item-address">
+              <div className="order-item-address">
                 <p>{order.address.street + ","}</p>
                 <p>{order.address.city+", "+order.address.state+", "+order.address.country+ ", "+order.address.zipcode}</p>
-              </p>
+              </div>
+              <p className="order-item-phone">{order.address.phone}</p>
             </div>
+            <p>Items : {order.items.length}</p>
+            <p>${order.amount}</p>
+            <select>
+              <option value="Food Processing">Food Processing</option>
+              <option value="Out for delivery">Out for delivery</option>
+              <option value="Delivered">Delivered</option>
+            </select>
           </div>
         ))}
       </div>
