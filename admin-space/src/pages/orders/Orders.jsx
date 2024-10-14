@@ -18,6 +18,11 @@ const Orders = ({ url }) => {
     }
   }
 
+  const statusHandler = async(event, orderId) => {
+    console.log("Event details:", event);
+    console.log("Order Id:", orderId);
+  }
+
   useEffect(() => {
     fetchAllOrders()
   }, [])
@@ -48,7 +53,7 @@ const Orders = ({ url }) => {
             </div>
             <p>Items : {order.items.length}</p>
             <p>${order.amount}</p>
-            <select>
+            <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
               <option value="Food Processing">Food Processing</option>
               <option value="Out for delivery">Out for delivery</option>
               <option value="Delivered">Delivered</option>
