@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
-  const apiUrl = 'http://localhost:8974';
+  const apiUrl = 'https://backend-mern-full-stack-food-ordering-app.onrender.com';
 
   return (
     <div>
