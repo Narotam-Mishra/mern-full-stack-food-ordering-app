@@ -77,7 +77,7 @@ Backend runs at `http://localhost:5000`.
 
 ### 2. Start the frontend:
 ```sh
-cd ../client
+cd frontend
 npm start
 ```
 Frontend runs at `http://localhost:3000`.
