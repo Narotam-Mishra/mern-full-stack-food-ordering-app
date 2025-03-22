@@ -110,8 +110,8 @@ mern-full-stack-food-ordering-app/
 - `GET /api/orders/list` - List order details
 
 ### Deployment
-- Frontend (Vercel) - `https://mern-full-stack-food-ordering-app.vercel.app/`
-- Backend (Render) - `https://backend-mern-full-stack-food-ordering-app.onrender.com`
+- [Frontend URL](https://mern-full-stack-food-ordering-app.vercel.app/)
+- [Backend URL](https://backend-mern-full-stack-food-ordering-app.onrender.com)
 
 ## Contributing
 1. Fork the repository
