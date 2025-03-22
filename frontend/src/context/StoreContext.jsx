@@ -9,7 +9,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
     
     const [cartItems, setCartItems] = useState({});
-    const backendUrl = "http://localhost:8974"
+    const backendUrl = "https://backend-mern-full-stack-food-ordering-app.onrender.com"
     const [token, setToken] = useState("")
     const [food_list, setFoodList] = useState([])
 
