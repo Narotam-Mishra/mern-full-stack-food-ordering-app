@@ -88,7 +88,7 @@ Go to `http://localhost:3000`.
 ## Project Structure
 ```
 mern-full-stack-food-ordering-app/
-│── client/        # React frontend
+│── frontend/        # React frontend
 │── backend/        # Node.js backend
 │── models/        # Mongoose models
 │── routes/        # Express routes
